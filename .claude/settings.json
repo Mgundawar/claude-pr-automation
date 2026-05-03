@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash(git *)",
+        "if": "Bash(git push*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "gh pr create --fill --draft || true"
+          }
+        ],
+        "description": "Auto-create PR after any git push"
+      }
+    ]
+  }
+}
